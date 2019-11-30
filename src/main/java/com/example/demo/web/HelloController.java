@@ -15,7 +15,7 @@ public class HelloController {
     public String index() {
         ConfigBean bean =new ConfigBean();
         bean.setName("hello");
-        return "Hello World";
+        return "Hello World 1";
     }
 
 
