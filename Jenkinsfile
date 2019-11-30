@@ -5,7 +5,6 @@ pipeline {
 		stage('Clean') {
 		    agent any
             steps {
-				sh 'docker rm -f springboot:1.0.0'
                 sh 'docker rmi -f springboot:1.0.0'
             }
         }
