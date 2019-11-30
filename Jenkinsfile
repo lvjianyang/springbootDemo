@@ -14,7 +14,7 @@ pipeline {
 			}
             steps {
                 sh 'echo build'
-				sh "docker run -d -p 8088:8088 springboot"
+				sh "docker run -d -p 8088:8088 springboot:1.0.0"
             }
         }
 		
