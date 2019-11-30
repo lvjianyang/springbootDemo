@@ -1,10 +1,5 @@
 pipeline {
-	agent none
-    
-    stages {
-		
-        stage('Docker Build') {
-			agent {
+	agent {
 				dockerfile {
 					filename 'Dockerfile'
 					dir 'docker'
@@ -12,9 +7,18 @@ pipeline {
 					args '-v /root/tmp:/root/tmp'
 				}
 			}
+    
+    stages {
+		
+        stage('Docker Build') {		
             steps {
                 sh 'echo build'
-				sh "docker run -d -p 8088:8088 springboot:1.0.0"
+            }
+        }
+		stage('Deliver') {
+            steps {
+				sh 'chmod -R 777 ./jenkins/scripts/run.sh'
+                sh './jenkins/scripts/run.sh'
             }
         }
 		
