@@ -1,6 +1,8 @@
 pipeline {
 	agent none
-    stage('Build') {
+    
+    stages {
+		stage('Build') {
             docker {
 				image 'maven:3-alpine'
 				args '-v /root/.m2:/root/.m2'
@@ -11,7 +13,6 @@ pipeline {
 				sh 'mv target/demo-1.0.0.jar docker/demo-1.0.0.jar'
             }
         }
-    stages {
         stage('Docker Build') {
 			agent {
 				dockerfile {
