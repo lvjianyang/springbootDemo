@@ -2,12 +2,7 @@ pipeline {
 	agent none
     
     stages {
-		stage('Clean') {
-		    agent any
-            steps {
-                sh "docker ps|grep springboot | awk '{print $3}' | xargs docker rm -f | true"
-            }
-        }
+		
         stage('Docker Build') {	
 			agent {
 						dockerfile {
