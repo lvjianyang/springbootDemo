@@ -11,6 +11,8 @@ pipeline {
 			}
             steps {
                 sh 'mvn -B -DskipTests clean package'
+				sh 'docker rm -f springboot| true'
+				sh 'docker rmi -f springboot:1.0.0| true'
             }
         }
         stage('Docker Build') {	
@@ -29,7 +31,7 @@ pipeline {
 		stage('Deliver') {
 		    agent any
             steps {
-				sh 'docker rm -f springboot| true'
+				
                 sh 'docker run --name springboot -d -p 8088:8088 springboot:1.0.0'
             }
         }
