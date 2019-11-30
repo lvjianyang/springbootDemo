@@ -2,7 +2,13 @@ pipeline {
 	agent none
     
     stages {
-		
+		stage('Clean') {
+		    agent any
+            steps {
+				sh 'docker rm -f springboot:1.0.0'
+                sh 'docker rmi -f springboot:1.0.0'
+            }
+        }
         stage('Docker Build') {	
 			agent {
 						dockerfile {
@@ -19,8 +25,7 @@ pipeline {
 		stage('Deliver') {
 		    agent any
             steps {
-				sh 'chmod -R 777 ./jenkins/scripts/run.sh'
-                sh './jenkins/scripts/run.sh'
+                sh 'docker run -d -p 8088:8088 springboot:1.0.0'
             }
         }
 		
