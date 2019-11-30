@@ -2,12 +2,6 @@ pipeline {
 	agent none
     
     stages {
-		stage('Clean') {
-		    agent any
-            steps {
-                sh 'docker rm -f springboot| true'
-            }
-        }
         stage('Docker Build') {	
 			agent {
 						dockerfile {
@@ -24,6 +18,7 @@ pipeline {
 		stage('Deliver') {
 		    agent any
             steps {
+				sh 'docker rm -f springboot| true'
                 sh 'docker run --name springboot -d -p 8088:8088 springboot:1.0.0'
             }
         }
