@@ -1,6 +1,5 @@
 package com.example.demo.web.formatter;
 
-import com.example.demo.web.ConfigBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

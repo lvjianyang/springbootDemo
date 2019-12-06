@@ -1,8 +1,8 @@
 package com.example.demo.web.interceptors;
 
-import com.example.demo.web.converter.DemoObj;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 

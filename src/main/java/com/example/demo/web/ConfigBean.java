@@ -8,6 +8,4 @@ import lombok.Data;
 @Data
 public class ConfigBean {
 
-    private String name;
-    private String think;
 }
