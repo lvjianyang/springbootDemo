@@ -13,9 +13,7 @@ import org.springframework.util.StreamUtils;
 
 public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {//①
 
-    public MyMessageConverter() {
-    }
-
+   
     /**
      * ③
      */
