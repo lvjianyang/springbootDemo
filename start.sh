@@ -1,8 +1,6 @@
 #!/bin/bash
-export JAVA_HOME=/u01/tools/jdk1.8.0_211
-echo ${JAVA_HOME}
 echo "授权当前用户"
-chmod 777 *.jar
+chmod 777 demo-1.0.0.jar
 echo "执行...."
-nohup ${JAVA_HOME}/bin/java -jar *.jar &
+nohup java -jar demo-1.0.0.jar &
 echo "启动成功"
